@@ -9,7 +9,7 @@ import '../../routes/status.dart' as route;
 class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
-  group('GET /', () {
+  group('GET /status', () {
     test('responds with a 204.', () {
       final context = _MockRequestContext();
       final response = route.onRequest(context);

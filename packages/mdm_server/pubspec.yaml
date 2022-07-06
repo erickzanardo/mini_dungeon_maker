@@ -1,12 +1,15 @@
 name: mdm_server
 description: An new Dart Frog application
 version: 1.0.0
+publish_to: none
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
-  dart_frog: ^0.0.1-dev
+  dart_frog: ^0.0.1-dev.10
+  dungeon_repository:
+    path: packages/dungeon_repository
   mdm_domain: 1.0.0+1
 
 dev_dependencies:

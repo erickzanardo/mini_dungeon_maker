@@ -30,5 +30,31 @@ void main() {
         isNot(equals(Dungeon(id: 0, name: '', description: 'a'))),
       );
     });
+
+    test('serializes to json', () {
+      expect(
+        Dungeon(id: 0, name: 'name', description: 'desc').toJson(),
+        equals(
+          {
+            'id': 0,
+            'name': 'name',
+            'description': 'desc',
+          },
+        ),
+      );
+    });
+
+    test('deserializes from json', () {
+      expect(
+        Dungeon.fromJson(const <String, dynamic>{
+          'id': 0,
+          'name': 'name',
+          'description': 'desc',
+        }),
+        equals(
+          Dungeon(id: 0, name: 'name', description: 'desc'),
+        ),
+      );
+    });
   });
 }
