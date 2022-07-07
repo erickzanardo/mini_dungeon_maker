@@ -6,7 +6,7 @@ import 'package:mdm_domain/mdm_domain.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
-import '../../routes/dungeons/index.dart' as route;
+import '../../routes/dungeons/[id]/objects.dart' as route;
 
 class _MockRequest extends Mock implements Request {}
 
@@ -27,17 +27,20 @@ void main() {
         when(() => context.read<DungeonRepository>()).thenReturn(repository);
         when(() => context.request).thenReturn(request);
 
-        when(repository.listDungeons).thenAnswer((invocation) async {
+        when(() => repository.listDungeonObjects(1))
+            .thenAnswer((invocation) async {
           return [
-            const Dungeon(
+            const DungeonObject(
               id: 1,
-              name: 'Cool dungeon',
-              description: 'You will like this on',
+              dungeonId: 1,
+              name: 'Wall',
+              description: '',
+              solid: true,
             ),
           ];
         });
 
-        final response = await route.onRequest(context);
+        final response = await route.onRequest(context, 1.toString());
         expect(response.statusCode, equals(HttpStatus.ok));
         expect(
           await response.json(),
@@ -45,8 +48,11 @@ void main() {
             [
               {
                 'id': 1,
-                'name': 'Cool dungeon',
-                'description': 'You will like this on',
+                'dungeonId': 1,
+                'name': 'Wall',
+                'description': '',
+                'solid': true,
+                'sprite': null,
               },
             ],
           ),

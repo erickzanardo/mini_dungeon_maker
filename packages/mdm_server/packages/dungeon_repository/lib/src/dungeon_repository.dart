@@ -17,4 +17,17 @@ class DungeonRepository {
       ),
     ];
   }
+
+  /// Returns the dungeon objects for the given id.
+  Future<List<DungeonObject>> listDungeonObjects(int dungeonId) async {
+    return [
+      DungeonObject(
+        id: 1,
+        dungeonId: dungeonId,
+        name: 'Wall',
+        description: 'a wall',
+        solid: true,
+      ),
+    ];
+  }
 }

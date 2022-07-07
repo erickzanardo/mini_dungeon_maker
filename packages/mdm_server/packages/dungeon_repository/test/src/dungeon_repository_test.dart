@@ -15,5 +15,13 @@ void main() {
         expect(dungeons, hasLength(1));
       });
     });
+
+    group('listDungeonObjects', () {
+      test('listDungeonObjects returns a list of objects', () async {
+        final repository = DungeonRepository();
+        final objects = await repository.listDungeonObjects(1);
+        expect(objects, hasLength(1));
+      });
+    });
   });
 }
