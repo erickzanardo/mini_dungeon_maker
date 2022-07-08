@@ -12,9 +12,11 @@ class DungeonObject extends Equatable {
   const DungeonObject({
     required this.id,
     required this.dungeonId,
-    required this.name,
-    required this.description,
+    required this.x,
+    required this.y,
     required this.solid,
+    this.name,
+    this.description,
     this.sprite,
   });
 
@@ -28,14 +30,20 @@ class DungeonObject extends Equatable {
   /// The unique identifier of the dungeon that this object is on.
   final int dungeonId;
 
-  /// The name of the dungeon object.
-  final String name;
+  /// The x coordinate of this object.
+  final int x;
 
-  /// The description of the dungeon object.
-  final String description;
+  /// The y coordinate of this object.
+  final int y;
 
   /// Whether the dungeon object is solid.
   final bool solid;
+
+  /// The name of the dungeon object.
+  final String? name;
+
+  /// The description of the dungeon object.
+  final String? description;
 
   /// The sprite of the dungeon object.
   final String? sprite;
@@ -47,9 +55,11 @@ class DungeonObject extends Equatable {
   List<Object?> get props => [
         id,
         dungeonId,
+        solid,
+        x,
+        y,
         name,
         description,
-        solid,
         sprite,
       ];
 }

@@ -10,6 +10,8 @@ void main() {
         DungeonObject(
           id: 0,
           dungeonId: 0,
+          x: 0,
+          y: 0,
           solid: true,
           name: '',
           description: '',
@@ -23,6 +25,8 @@ void main() {
         DungeonObject(
           id: 0,
           dungeonId: 0,
+          x: 0,
+          y: 0,
           solid: true,
           name: '',
           description: '',
@@ -32,6 +36,8 @@ void main() {
           DungeonObject(
             id: 0,
             dungeonId: 0,
+            x: 0,
+            y: 0,
             solid: true,
             name: '',
             description: '',
@@ -44,6 +50,8 @@ void main() {
         DungeonObject(
           id: 0,
           dungeonId: 0,
+          x: 0,
+          y: 0,
           solid: true,
           name: '',
           description: '',
@@ -55,6 +63,8 @@ void main() {
               id: 1,
               dungeonId: 0,
               solid: true,
+              x: 0,
+              y: 0,
               name: '',
               description: '',
               sprite: '',
@@ -67,6 +77,8 @@ void main() {
         DungeonObject(
           id: 0,
           dungeonId: 0,
+          x: 0,
+          y: 0,
           solid: true,
           name: '',
           description: '',
@@ -77,6 +89,8 @@ void main() {
             DungeonObject(
               id: 0,
               dungeonId: 1,
+              x: 0,
+              y: 0,
               solid: true,
               name: '',
               description: '',
@@ -90,6 +104,8 @@ void main() {
         DungeonObject(
           id: 0,
           dungeonId: 0,
+          x: 0,
+          y: 0,
           solid: true,
           name: '',
           description: '',
@@ -100,6 +116,8 @@ void main() {
             DungeonObject(
               id: 0,
               dungeonId: 0,
+              x: 0,
+              y: 0,
               solid: false,
               name: '',
               description: '',
@@ -113,6 +131,8 @@ void main() {
         DungeonObject(
           id: 0,
           dungeonId: 0,
+          x: 0,
+          y: 0,
           solid: true,
           name: '',
           description: '',
@@ -123,6 +143,8 @@ void main() {
             DungeonObject(
               id: 0,
               dungeonId: 0,
+              x: 0,
+              y: 0,
               solid: true,
               name: 'a',
               description: '',
@@ -136,6 +158,8 @@ void main() {
         DungeonObject(
           id: 0,
           dungeonId: 0,
+          x: 0,
+          y: 0,
           solid: true,
           name: '',
           description: '',
@@ -146,6 +170,8 @@ void main() {
             DungeonObject(
               id: 0,
               dungeonId: 0,
+              x: 0,
+              y: 0,
               solid: true,
               name: '',
               description: '1',
@@ -160,6 +186,8 @@ void main() {
           id: 0,
           dungeonId: 0,
           solid: true,
+          x: 0,
+          y: 0,
           name: '',
           description: '',
           sprite: '',
@@ -169,10 +197,66 @@ void main() {
             DungeonObject(
               id: 0,
               dungeonId: 0,
+              x: 0,
+              y: 0,
               solid: true,
               name: '',
               description: '',
               sprite: '1',
+            ),
+          ),
+        ),
+      );
+
+      expect(
+        DungeonObject(
+          id: 0,
+          dungeonId: 0,
+          solid: true,
+          x: 0,
+          y: 0,
+          name: '',
+          description: '',
+          sprite: '',
+        ),
+        isNot(
+          equals(
+            DungeonObject(
+              id: 0,
+              dungeonId: 0,
+              x: 1,
+              y: 0,
+              solid: true,
+              name: '',
+              description: '',
+              sprite: '',
+            ),
+          ),
+        ),
+      );
+
+      expect(
+        DungeonObject(
+          id: 0,
+          dungeonId: 0,
+          solid: true,
+          x: 0,
+          y: 0,
+          name: '',
+          description: '',
+          sprite: '',
+        ),
+        isNot(
+          equals(
+            DungeonObject(
+              id: 0,
+              dungeonId: 0,
+              x: 0,
+              y: 1,
+              solid: true,
+              name: '',
+              description: '',
+              sprite: '',
             ),
           ),
         ),
@@ -185,6 +269,8 @@ void main() {
           id: 0,
           dungeonId: 0,
           solid: true,
+          x: 0,
+          y: 0,
           name: 'name',
           description: 'description',
           sprite: '1',
@@ -195,6 +281,8 @@ void main() {
             'name': 'name',
             'dungeonId': 0,
             'solid': true,
+            'x': 0,
+            'y': 0,
             'description': 'description',
             'sprite': '1',
           },
@@ -209,6 +297,8 @@ void main() {
           'name': 'name',
           'dungeonId': 0,
           'solid': true,
+          'x': 1,
+          'y': 1,
           'description': 'description',
           'sprite': '1',
         }),
@@ -217,6 +307,8 @@ void main() {
             id: 0,
             dungeonId: 0,
             solid: true,
+            x: 1,
+            y: 1,
             name: 'name',
             description: 'description',
             sprite: '1',

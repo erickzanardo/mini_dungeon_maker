@@ -24,6 +24,8 @@ class DungeonRepository {
       DungeonObject(
         id: 1,
         dungeonId: dungeonId,
+        x: 1,
+        y: 1,
         name: 'Wall',
         description: 'a wall',
         solid: true,

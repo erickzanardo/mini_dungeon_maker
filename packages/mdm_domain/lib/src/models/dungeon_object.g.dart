@@ -10,9 +10,11 @@ DungeonObject _$DungeonObjectFromJson(Map<String, dynamic> json) =>
     DungeonObject(
       id: json['id'] as int,
       dungeonId: json['dungeonId'] as int,
-      name: json['name'] as String,
-      description: json['description'] as String,
+      x: json['x'] as int,
+      y: json['y'] as int,
       solid: json['solid'] as bool,
+      name: json['name'] as String?,
+      description: json['description'] as String?,
       sprite: json['sprite'] as String?,
     );
 
@@ -20,8 +22,10 @@ Map<String, dynamic> _$DungeonObjectToJson(DungeonObject instance) =>
     <String, dynamic>{
       'id': instance.id,
       'dungeonId': instance.dungeonId,
+      'x': instance.x,
+      'y': instance.y,
+      'solid': instance.solid,
       'name': instance.name,
       'description': instance.description,
-      'solid': instance.solid,
       'sprite': instance.sprite,
     };

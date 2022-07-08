@@ -33,6 +33,8 @@ void main() {
             const DungeonObject(
               id: 1,
               dungeonId: 1,
+              x: 0,
+              y: 0,
               name: 'Wall',
               description: '',
               solid: true,
@@ -49,6 +51,8 @@ void main() {
               {
                 'id': 1,
                 'dungeonId': 1,
+                'x': 0,
+                'y': 0,
                 'name': 'Wall',
                 'description': '',
                 'solid': true,
