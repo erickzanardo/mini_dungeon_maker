@@ -3,6 +3,22 @@ import 'package:test/test.dart';
 
 void main() {
   group('MiniSprite', () {
+    test('empty returns an empty sprite', () {
+      expect(
+        MiniSprite.empty(2, 2).pixels,
+        equals([
+          [
+            false,
+            false,
+          ],
+          [
+            false,
+            false,
+          ],
+        ]),
+      );
+    });
+
     test('toDataString returns the correct data', () {
       expect(
         MiniSprite([

@@ -1,0 +1,88 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter test --coverage
+
+## exception
+
+FileSystemException: FileSystemException: Creation failed, path = 'coverage' (OS Error: Not a directory, errno = 20)
+
+```
+#0      _Directory.createSync (dart:io/directory_impl.dart:133:7)
+#1      _File.createSync (dart:io/file_impl.dart:270:14)
+#2      ForwardingFile.createSync (package:file/src/forwarding/forwarding_file.dart:23:16)
+#3      ErrorHandlingFile.createSync.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:286:22)
+#4      _runSync (package:flutter_tools/src/base/error_handling_io.dart:597:14)
+#5      ErrorHandlingFile.createSync (package:flutter_tools/src/base/error_handling_io.dart:285:5)
+#6      CoverageCollector.collectCoverageData (package:flutter_tools/src/test/coverage_collector.dart:157:9)
+#7      TestCommand.runCommand (package:flutter_tools/src/commands/test.dart:461:47)
+<asynchronous suspension>
+#8      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1183:27)
+<asynchronous suspension>
+#9      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#10     CommandRunner.runCommand (package:args/command_runner.dart:209:13)
+<asynchronous suspension>
+#11     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:281:9)
+<asynchronous suspension>
+#12     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#13     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:229:5)
+<asynchronous suspension>
+#14     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:62:9)
+<asynchronous suspension>
+#15     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#16     main (package:flutter_tools/executable.dart:94:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 3.0.4, on macOS 12.0.1 21A559 darwin-arm, locale en-GB)
+    • Flutter version 3.0.4 at /Users/erickzanardo/fvm/versions/stable
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 85684f9300 (7 days ago), 2022-06-30 13:22:47 -0700
+    • Engine revision 6ba2af10bb
+    • Dart version 2.17.5
+    • DevTools version 2.12.2
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 31.0.0)
+    • Android SDK at /Users/erickzanardo/Library/Android/sdk
+    • Platform android-31, build-tools 31.0.0
+    • ANDROID_HOME = /Users/erickzanardo/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 11.0.11+0-b60-7590822)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 13.1)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • CocoaPods version 1.11.2
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 2021.1)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 11.0.11+0-b60-7590822)
+
+[✓] VS Code (version 1.68.1)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.40.0
+
+[✓] Connected device (2 available)
+    • macOS (desktop) • macos  • darwin-arm64   • macOS 12.0.1 21A559 darwin-arm
+    • Chrome (web)    • chrome • web-javascript • Google Chrome 103.0.5060.114
+
+[✓] HTTP Host Availability
+    • All required HTTP hosts are available
+
+• No issues found!
+```
