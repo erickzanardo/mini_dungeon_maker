@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/packages/mdm_domain/melos_mdm_domain.iml" filepath="$PROJECT_DIR$/packages/mdm_domain/melos_mdm_domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/mdm_game/melos_mdm_game.iml" filepath="$PROJECT_DIR$/packages/mdm_game/melos_mdm_game.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/mdm_server/melos_mdm_server.iml" filepath="$PROJECT_DIR$/packages/mdm_server/melos_mdm_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/mini_sprite_editor/melos_mini_sprite_editor.iml" filepath="$PROJECT_DIR$/packages/mini_sprite_editor/melos_mini_sprite_editor.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_mini_dungeon_maker.iml" filepath="$PROJECT_DIR$/melos_mini_dungeon_maker.iml" />
     </modules>
   </component>
