@@ -21,8 +21,8 @@ class MiniSprite {
     final blocks = value.split(';');
 
     final size = blocks.removeAt(0).split(',');
-    final width = int.parse(size[0]);
-    final height = int.parse(size[1]);
+    final height = int.parse(size[0]);
+    final width = int.parse(size[1]);
 
     final flatten = blocks.map((rawBlock) {
       final blockSplit = rawBlock.split(',');

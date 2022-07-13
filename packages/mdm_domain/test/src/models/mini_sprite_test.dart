@@ -70,5 +70,27 @@ void main() {
         ]),
       );
     });
+
+    group('when dimensions are not symmetrical', () {
+      test('toDataString returns the correct data', () {
+        expect(
+          MiniSprite([
+            [true, true, true],
+            [true, false, false],
+          ]).toDataString(),
+          equals('2,3;4,1;2,0'),
+        );
+      });
+
+      test('fromDataString returns the correct parsed instance', () {
+        expect(
+          MiniSprite.fromDataString('2,3;4,1;2,0').pixels,
+          equals([
+            [true, true, true],
+            [true, false, false],
+          ]),
+        );
+      });
+    });
   });
 }
