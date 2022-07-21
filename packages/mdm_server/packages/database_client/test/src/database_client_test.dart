@@ -20,6 +20,26 @@ void main() {
       );
     });
 
+    test('get all returns empty when nothing is to be found', () async {
+      final db = DatabaseClient.memory();
+      expect(
+        await db.getAll('cars'),
+        isEmpty,
+      );
+    });
+
+    test('get all returns all docs', () async {
+      final db = DatabaseClient.memory();
+      await db.insert(
+        'cars',
+        <String, dynamic>{
+          'brand': 'VW',
+          'model': 'Nivus',
+        },
+      );
+      expect(await db.getAll('cars'), hasLength(1));
+    });
+
     test('an inserted doc can be retrieved', () async {
       final db = DatabaseClient.memory();
       final id = await db.insert(
@@ -122,6 +142,21 @@ void main() {
           equals(['Onix']),
         );
       });
+    });
+
+    test('delete removes the doc', () async {
+      final db = DatabaseClient.memory();
+      final id = await db.insert(
+        'cars',
+        <String, dynamic>{
+          'brand': 'VW',
+          'model': 'Nivus',
+        },
+      );
+
+      await db.delete('cars', id);
+      final doc = await db.getById('cars', id);
+      expect(doc, isNull);
     });
   });
 }
