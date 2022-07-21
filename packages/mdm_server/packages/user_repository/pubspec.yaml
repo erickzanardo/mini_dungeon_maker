@@ -1,0 +1,18 @@
+name: user_repository
+description: Repository that offer access and features for Users
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  crypto: ^3.0.2
+  database_client: 1.0.0+1
+  mdm_domain: 1.0.0+1
+
+dev_dependencies:
+  coverage: ^1.1.0
+  mocktail: ^0.3.0
+  test: ^1.19.2
+  very_good_analysis: ^3.0.0

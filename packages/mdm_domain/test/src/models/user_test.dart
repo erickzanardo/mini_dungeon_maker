@@ -6,32 +6,32 @@ import 'package:test/test.dart';
 void main() {
   group('User', () {
     test('can be instantiated', () {
-      expect(User(id: 0, username: ''), isNotNull);
+      expect(User(id: '0', username: ''), isNotNull);
     });
 
     test('supports value comparison', () {
       expect(
-        User(id: 0, username: ''),
-        equals(User(id: 0, username: '')),
+        User(id: '0', username: ''),
+        equals(User(id: '0', username: '')),
       );
 
       expect(
-        User(id: 0, username: ''),
-        isNot(equals(User(id: 1, username: ''))),
+        User(id: '0', username: ''),
+        isNot(equals(User(id: '1', username: ''))),
       );
 
       expect(
-        User(id: 0, username: ''),
-        isNot(equals(User(id: 0, username: 'a'))),
+        User(id: '0', username: ''),
+        isNot(equals(User(id: '0', username: 'a'))),
       );
     });
 
     test('serializes to json', () {
       expect(
-        User(id: 0, username: 'username').toJson(),
+        User(id: '0', username: 'username').toJson(),
         equals(
           {
-            'id': 0,
+            'id': '0',
             'username': 'username',
           },
         ),
@@ -41,11 +41,11 @@ void main() {
     test('deserializes from json', () {
       expect(
         User.fromJson(const <String, dynamic>{
-          'id': 0,
+          'id': '0',
           'username': 'username',
         }),
         equals(
-          User(id: 0, username: 'username'),
+          User(id: '0', username: 'username'),
         ),
       );
     });

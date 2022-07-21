@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/packages/mdm_server/packages/database_client/melos_database_client.iml" filepath="$PROJECT_DIR$/packages/mdm_server/packages/database_client/melos_database_client.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/mdm_server/packages/dungeon_repository/melos_dungeon_repository.iml" filepath="$PROJECT_DIR$/packages/mdm_server/packages/dungeon_repository/melos_dungeon_repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/mdm_domain/melos_mdm_domain.iml" filepath="$PROJECT_DIR$/packages/mdm_domain/melos_mdm_domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/mdm_game/melos_mdm_game.iml" filepath="$PROJECT_DIR$/packages/mdm_game/melos_mdm_game.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/mdm_server/melos_mdm_server.iml" filepath="$PROJECT_DIR$/packages/mdm_server/melos_mdm_server.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/mini_sprite_editor/melos_mini_sprite_editor.iml" filepath="$PROJECT_DIR$/packages/mini_sprite_editor/melos_mini_sprite_editor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/mdm_server/packages/user_repository/melos_user_repository.iml" filepath="$PROJECT_DIR$/packages/mdm_server/packages/user_repository/melos_user_repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_mini_dungeon_maker.iml" filepath="$PROJECT_DIR$/melos_mini_dungeon_maker.iml" />
     </modules>
   </component>

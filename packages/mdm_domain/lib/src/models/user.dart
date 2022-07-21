@@ -18,7 +18,7 @@ class User extends Equatable {
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   /// User id.
-  final int id;
+  final String id;
 
   /// User username.
   final String username;
