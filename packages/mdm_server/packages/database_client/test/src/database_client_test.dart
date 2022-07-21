@@ -1,4 +1,6 @@
 // ignore_for_file: prefer_const_constructors
+import 'dart:io';
+
 import 'package:database_client/database_client.dart';
 import 'package:test/test.dart';
 
@@ -61,6 +63,58 @@ void main() {
           },
         ),
       );
+    });
+
+    test('an inserted doc can be retrieved in file system', () async {
+      final db = DatabaseClient(
+        databasePath: '${Directory.systemTemp.path}/test.db',
+      );
+      final id = await db.insert(
+        'cars',
+        <String, dynamic>{
+          'brand': 'VW',
+          'model': 'Nivus',
+        },
+      );
+
+      final doc = await db.getById('cars', id);
+      expect(
+        doc,
+        equals(
+          <String, dynamic>{
+            'id': id,
+            'brand': 'VW',
+            'model': 'Nivus',
+          },
+        ),
+      );
+    });
+
+    test('an inserted doc can be updated', () async {
+      final db = DatabaseClient.memory();
+      final id = await db.insert(
+        'cars',
+        <String, dynamic>{
+          'brand': 'VW',
+          'model': 'NNivus',
+        },
+      );
+
+      var doc = await db.getById('cars', id);
+      expect(doc?['model'], equals('NNivus'));
+
+      await db.update(
+        'cars',
+        id,
+        <String, dynamic>{
+          'id': id,
+          'brand': 'VW',
+          'model': 'Nivus',
+        },
+      );
+
+      doc = await db.getById('cars', id);
+      expect(doc?['model'], equals('Nivus'));
     });
 
     group('query', () {
