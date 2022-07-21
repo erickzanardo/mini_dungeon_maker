@@ -47,6 +47,30 @@ void main() {
         );
       });
 
+      test('throws CreateUserException is insert fails', () async {
+        final db = MockDatabaseClient();
+        final repository = UserRepository(db: db);
+
+        when(
+          () => db.query(
+            any(),
+            any(),
+          ),
+        ).thenThrow(Exception());
+
+        when(() => db.insert(any(), any())).thenAnswer(
+          (_) => Future.value('1'),
+        );
+
+        expect(
+          () => repository.createUser(
+            username: 'john',
+            password: '12',
+          ),
+          throwsA(isA<CreateUserException>()),
+        );
+      });
+
       test('returns the user if the user creation succeeded', () async {
         final db = MockDatabaseClient();
         final repository = UserRepository(db: db);
@@ -73,6 +97,85 @@ void main() {
               .having((user) => user.username, 'username', equals('john'))
               .having((user) => user.id, 'id', isA<String>()),
         );
+      });
+
+      test('returns the user if the user creation succeeded', () async {
+        final db = MockDatabaseClient();
+        final repository = UserRepository(db: db);
+
+        when(
+          () => db.query(
+            any(),
+            any(),
+          ),
+        ).thenAnswer((_) => Future.value([]));
+
+        when(() => db.insert(any(), any())).thenAnswer(
+          (_) => Future.value('1'),
+        );
+
+        final user = await repository.createUser(
+          username: 'john',
+          password: '12',
+        );
+
+        expect(
+          user,
+          isA<User>()
+              .having((user) => user.username, 'username', equals('john'))
+              .having((user) => user.id, 'id', isA<String>()),
+        );
+      });
+    });
+
+    group('fetchByUsernameAndPassword', () {
+      test('returns the user when username and password matches', () async {
+        final db = MockDatabaseClient();
+        final repository = UserRepository(db: db);
+
+        when(
+          () => db.query(
+            any(),
+            any(),
+          ),
+        ).thenAnswer(
+          (_) => Future.value(
+            [
+              <String, dynamic>{
+                'id': '1',
+                'username': 'john',
+              }
+            ],
+          ),
+        );
+
+        final user = await repository.fetchByUsernameAndPassword(
+          username: 'john',
+          password: '12',
+        );
+
+        expect(user, equals(User(id: '1', username: 'john')));
+      });
+
+      test('returns null when there is no matches', () async {
+        final db = MockDatabaseClient();
+        final repository = UserRepository(db: db);
+
+        when(
+          () => db.query(
+            any(),
+            any(),
+          ),
+        ).thenAnswer(
+          (_) => Future.value([]),
+        );
+
+        final user = await repository.fetchByUsernameAndPassword(
+          username: 'john',
+          password: '12',
+        );
+
+        expect(user, isNull);
       });
     });
   });
