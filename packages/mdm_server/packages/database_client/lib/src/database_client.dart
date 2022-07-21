@@ -3,7 +3,6 @@ import 'package:objectdb/objectdb.dart';
 import 'package:objectdb/src/objectdb_storage_filesystem.dart';
 // ignore: implementation_imports
 import 'package:objectdb/src/objectdb_storage_in_memory.dart';
-import 'package:uuid/uuid.dart';
 
 enum _DatabaseClientMode {
   fileSystem,
@@ -50,19 +49,15 @@ class Condition {
 class DatabaseClient {
   /// {@macro database_client}
   DatabaseClient({required String databasePath})
-      : _uuid = const Uuid(),
-        _mode = _DatabaseClientMode.fileSystem,
+      : _mode = _DatabaseClientMode.fileSystem,
         _databasePath = databasePath;
 
   /// {@macro database_client}
   DatabaseClient.memory()
-      : _uuid = const Uuid(),
-        _mode = _DatabaseClientMode.inMemory,
+      : _mode = _DatabaseClientMode.inMemory,
         _databasePath = null;
 
   final String? _databasePath;
-
-  final Uuid _uuid;
 
   final _DatabaseClientMode _mode;
 

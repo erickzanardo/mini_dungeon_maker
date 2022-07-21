@@ -8,7 +8,6 @@ environment:
 
 dependencies:
   objectdb: ^1.2.1+1
-  uuid: ^3.0.6
 
 dev_dependencies:
   coverage: ^1.1.0

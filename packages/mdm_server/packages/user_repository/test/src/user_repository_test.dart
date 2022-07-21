@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:database_client/database_client.dart';
+import 'package:mdm_domain/mdm_domain.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 import 'package:user_repository/user_repository.dart';
@@ -61,10 +62,17 @@ void main() {
           (_) => Future.value('1'),
         );
 
-        final user = await repository.createUser(username: '', password: '12');
+        final user = await repository.createUser(
+          username: 'john',
+          password: '12',
+        );
 
-        expect(user, isNotNull);
-        // TODO AQUI
+        expect(
+          user,
+          isA<User>()
+              .having((user) => user.username, 'username', equals('john'))
+              .having((user) => user.id, 'id', isA<String>()),
+        );
       });
     });
   });
