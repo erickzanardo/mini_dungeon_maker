@@ -8,9 +8,13 @@ environment:
 
 dependencies:
   dart_frog: ^0.0.1-dev.10
+  database_client:
+    path: packages/database_client
   dungeon_repository:
     path: packages/dungeon_repository
   mdm_domain: 1.0.0+1
+  user_repository:
+    path: packages/user_repository
 
 dev_dependencies:
   mocktail: ^0.3.0

@@ -67,7 +67,7 @@ void main() {
 
     test('an inserted doc can be retrieved in file system', () async {
       final db = DatabaseClient(
-        databasePath: '${Directory.systemTemp.path}/test.db',
+        databasePath: Directory.systemTemp.path,
       );
       final id = await db.insert(
         'cars',

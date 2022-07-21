@@ -68,7 +68,7 @@ class DatabaseClient {
       table,
       () => ObjectDB(
         _mode == _DatabaseClientMode.fileSystem
-            ? FileSystemStorage(_databasePath!)
+            ? FileSystemStorage('${_databasePath!}/$table.db')
             : InMemoryStorage(),
       ),
     );
